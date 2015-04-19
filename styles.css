@@ -1,8 +1,8 @@
-#calculator {
+body {
   overflow-x: hidden;
 }
 
-#calculator > a {
+a {
   text-decoration: none;
 }
 
@@ -21,20 +21,20 @@
   text-align: center;
 }
 
-#calculator > h1 {
+h1 {
     text-align: center;
     font-size: 80px;
     color: #39c;
     font-family: American Typewriter, sans-serif;
 }
 
-#calculator > h3 {
+h3 {
     color: #39c;
     font-family: American Typewriter, sans-serif;
     font-size: 18px;
 }
 
-#calculator > h4 {
+h4 {
     margin-top: 20px;
     font-size: 18px;
     text-align: center;
@@ -42,12 +42,12 @@
     font-family: American Typewriter, sans-serif;
 }
 
-#calculator > p {
+p {
     font-family: American Typewriter, sans-serif;
     color: #39c;
 }
 
-#calculator > #infoButton {
+#infoButton {
     text-align: center;
     height: 18px;
     width: 18px;
@@ -59,19 +59,19 @@
     padding: 5px;
 }
 
-#calculator > #infoButton > p {
+#infoButton > p {
   font-size: 14px;
   margin-top: 3px;
   color: white;
 }
 
-#calculator > #infoButton:hover {
+#infoButton:hover {
     transition: 0.3s;
     background-color: #39c;
     cursor: pointer;
 }
 
-#calculator > #infoButton:active {
+#infoButton:active {
   transition: 0.1s;
   background-color: #ff9b0f;
 }
@@ -142,7 +142,7 @@
   margin-top: 30px;
 }
 
-#calculator > input {
+input {
     border: 1px solid #39c;
     padding: 10px;
     border-radius: 5px;
@@ -152,7 +152,7 @@
     text-align: center;
 }
 
-#calculator > select option p {
+select option p {
   font-family: American Typewriter, sans-serif;
   font-size: 18px;
   color: black;
@@ -384,7 +384,7 @@
     height: 36px;
 }
 
-#calculator > img {
+ > img {
     width: 350px;
     margin-top: -100px;
 }
@@ -410,11 +410,11 @@
 
 @media (max-width: 1200px) {
 
-  #calculator > img {
+   > img {
     display: none;
   }
 
-  #calculator > body {
+   > body {
     overflow-y: scroll;
   }
 
@@ -437,7 +437,7 @@
 
 @media (max-width: 736px) {
 
-  #calculator > h1 {
+   > h1 {
     margin-top: 40px;
     font-size: 48px;
   }

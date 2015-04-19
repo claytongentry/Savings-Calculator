@@ -1,8 +1,8 @@
-body {
+#calculator {
   overflow-x: hidden;
 }
 
-a {
+#calculator > a {
   text-decoration: none;
 }
 
@@ -21,20 +21,20 @@ a {
   text-align: center;
 }
 
-h1 {
+#calculator > h1 {
     text-align: center;
     font-size: 80px;
     color: #39c;
     font-family: American Typewriter, sans-serif;
 }
 
-h3 {
+#calculator > h3 {
     color: #39c;
     font-family: American Typewriter, sans-serif;
     font-size: 18px;
 }
 
-h4 {
+#calculator > h4 {
     margin-top: 20px;
     font-size: 18px;
     text-align: center;
@@ -42,12 +42,12 @@ h4 {
     font-family: American Typewriter, sans-serif;
 }
 
-p {
+#calculator > p {
     font-family: American Typewriter, sans-serif;
     color: #39c;
 }
 
-#infoButton {
+#calculator > #infoButton {
     text-align: center;
     height: 18px;
     width: 18px;
@@ -59,19 +59,19 @@ p {
     padding: 5px;
 }
 
-#infoButton > p {
+#calculator > #infoButton > p {
   font-size: 14px;
   margin-top: 3px;
   color: white;
 }
 
-#infoButton:hover {
+#calculator > #infoButton:hover {
     transition: 0.3s;
     background-color: #39c;
     cursor: pointer;
 }
 
-#infoButton:active {
+#calculator > #infoButton:active {
   transition: 0.1s;
   background-color: #ff9b0f;
 }
@@ -142,7 +142,7 @@ p {
   margin-top: 30px;
 }
 
-input {
+#calculator > input {
     border: 1px solid #39c;
     padding: 10px;
     border-radius: 5px;
@@ -152,7 +152,7 @@ input {
     text-align: center;
 }
 
-select option p {
+#calculator > select option p {
   font-family: American Typewriter, sans-serif;
   font-size: 18px;
   color: black;
@@ -384,7 +384,7 @@ select option p {
     height: 36px;
 }
 
- > img {
+#calculator > img {
     width: 350px;
     margin-top: -100px;
 }
@@ -410,11 +410,11 @@ select option p {
 
 @media (max-width: 1200px) {
 
-   > img {
+  #calculator > img {
     display: none;
   }
 
-   > body {
+  #calculator > body {
     overflow-y: scroll;
   }
 
@@ -437,7 +437,7 @@ select option p {
 
 @media (max-width: 736px) {
 
-   > h1 {
+  #calculator > h1 {
     margin-top: 40px;
     font-size: 48px;
   }

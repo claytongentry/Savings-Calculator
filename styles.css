@@ -1,0 +1,474 @@
+#calculator {
+  overflow-x: hidden;
+}
+
+#calculator > a {
+  text-decoration: none;
+}
+
+.fa-car {
+  color: red;
+}
+
+.fa-tree {
+  color: green;
+}
+
+#title {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#calculator > h1 {
+    text-align: center;
+    font-size: 80px;
+    color: #39c;
+    font-family: American Typewriter, sans-serif;
+}
+
+#calculator > h3 {
+    color: #39c;
+    font-family: American Typewriter, sans-serif;
+    font-size: 18px;
+}
+
+#calculator > h4 {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+    font-family: American Typewriter, sans-serif;
+}
+
+#calculator > p {
+    font-family: American Typewriter, sans-serif;
+    color: #39c;
+}
+
+#calculator > #infoButton {
+    text-align: center;
+    height: 18px;
+    width: 18px;
+    line-height: 14px;
+    border-radius: 100%;
+    background-color: gray;
+    float: right;
+    margin: -30px 30px auto auto;
+    padding: 5px;
+}
+
+#calculator > #infoButton > p {
+  font-size: 14px;
+  margin-top: 3px;
+  color: white;
+}
+
+#calculator > #infoButton:hover {
+    transition: 0.3s;
+    background-color: #39c;
+    cursor: pointer;
+}
+
+#calculator > #infoButton:active {
+  transition: 0.1s;
+  background-color: #ff9b0f;
+}
+
+#dialogoverlay {
+  display: none;
+  opacity: 0.8;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: #fff;
+  width: 100%;
+  z-index: 10;
+}
+
+#dialogbox {
+  display: none;
+  position: absolute;
+  background: #000;
+  border: 15px solid black;
+  border-radius: 15px;
+  width: 300px;
+  z-index: 10;
+  background-color: #fff;
+}
+
+#dialogboxhead {
+    background-color: #39c;
+    font-size: 24px;
+    padding: 15px;
+    color: white;
+    font-family: American Typewriter, sans-serif;
+}
+
+#dialogboxbody {
+    background-color: #333;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    font-family: American Typewriter;
+}
+
+#dialogboxbody > p {
+    color: white;
+}
+
+#dialogboxfoot {
+    background-color: #39c;
+    padding: 10px;
+    text-align: right;
+}
+
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 430px;
+}
+
+#formDiv {
+    height: 480px;
+    width: 700px;
+    margin: 10px auto 0px auto;
+    text-align: center;
+}
+
+.question {
+  margin-top: 30px;
+}
+
+#calculator > input {
+    border: 1px solid #39c;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: American Typewriter, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#calculator > select option p {
+  font-family: American Typewriter, sans-serif;
+  font-size: 18px;
+  color: black;
+}
+
+.submitButton {
+    font-family: American Typewriter, sans-serif;
+    margin-top: 30px;
+    padding: 12px !important;
+    font-size: 18px !important;
+    background-color: #ff9b0f;
+    color: white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.submitButton:hover{
+    border: 2px solid black;
+}
+
+#answerDiv {
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    height: 340px;
+    width: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 20px auto 0px auto;
+}
+
+#mainTopLine {
+  font-size: 48px;
+  line-height: 48px;
+  margin-top: 0px; margin-bottom: 0px;
+}
+
+.main {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.mainReturn {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  height: auto;
+  width: 200px;
+}
+
+.identifier {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+#timeButtons {
+  margin-top: 0px;
+}
+
+.valueReturn {
+    font-family: American Typewriter, serif;
+    color: #39c;
+    font-size: 48px;
+}
+
+.scrollDown {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.scrollDown > i {
+  margin-top: -25px;
+  margin-bottom: 20px;
+}
+
+.scrollDown:hover > p {
+  transition: 0.2s;
+  color: white;
+}
+
+#firstScroll {
+    margin-top: 20px;
+}
+
+.bigButton {
+    display: inline-block;
+    width: 120px;
+    height: 96px;
+    line-height: 96px;
+    border-radius: 5px;
+    border: 1px #39c solid;
+}
+
+.bigButton:hover {
+    transition: 0.2s;
+    background-color: #39c;
+    cursor: pointer;
+}
+
+.bigButton > p {
+    font-family: American Typewriter, sans-serif;
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+.bigButton:hover p {
+    transition: 0.2s;
+    color: white;
+}
+
+.bigButton:active, .activated {
+    border: 2px black solid;
+    background-color: #39c;
+}
+
+.bigButton:active, .activated p {
+    color: white;
+}
+
+.littleButton {
+    display: inline-block;
+    width: 120px;
+    height: 18px;
+    line-height: 18px;
+    margin: 30px auto 10px auto;
+    border: 1px #39c solid;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.littleButton:hover {
+    transition: 0.2s;
+    background-color: #39c;
+    cursor: pointer;
+}
+
+.littleButton > p {
+    font-family: American Typewriter, sans-serif;
+    font-size: 14px;
+    color: #39c;
+    margin-top: 0px;
+}
+
+.littleButton:hover p {
+    transition: 0.2s;
+    color: white;
+}
+
+.littleButton:active, .activated {
+    border: 2px black solid;
+    background-color: #39c;
+}
+
+.littleButton:active, .activated p {
+    color: white;
+}
+
+#equivalents {
+    margin: 10px auto 0px auto;
+    text-align: center;
+    width: auto;
+}
+
+.equiv {
+    margin-right: auto;
+    margin-left: auto;
+    width: 320px;
+    height: 220px;
+    display: inline-block;
+    padding: 20px;
+}
+
+.equivText {
+    font-size: 18px;
+}
+
+.returnedEquivValue {
+    line-height: 10px;
+    font-size: 24px;
+}
+
+#gauge {
+  width: 300px; height: 150px;
+  margin: 80px auto 140px auto;
+  text-align: center;
+}
+
+#gaugeInfo {
+  font-size: 14px;
+  width: 300px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+}
+
+#gaugeChartDiv table {
+  width: auto;
+  margin: 0 auto !important;
+}
+
+#contactUsButton {
+  width: 240px;
+  height: 48px;
+  line-height: 48px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  border: 3px solid #39c;
+  color: #39c;
+  cursor: pointer;
+  font-family: American Typewriter, serif;
+  font-size: 18px;
+}
+
+#contactUsButton:hover {
+  transition: 0.2s;
+  background-color: #39c;
+  color: white;
+}
+
+#footer {
+    margin: 10px auto 0px auto;
+    height: 36px;
+}
+
+#calculator > img {
+    width: 350px;
+    margin-top: -100px;
+}
+
+#shopLogo {
+    float: left;
+    margin-left: 100px;
+}
+
+#USSolarLogo {
+    float: right;
+    margin-right: 100px;
+}
+
+#disclaimer {
+    text-align: center;
+    font-family: American Typewriter, sans-serif;
+    font-style: italic;
+    color: black;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+@media (max-width: 1200px) {
+
+  #calculator > img {
+    display: none;
+  }
+
+  #calculator > body {
+    overflow-y: scroll;
+  }
+
+  #answerDiv {
+    height: 410px;
+    display: none;
+  }
+
+  .equiv {
+    display: block;
+    padding: 0px;
+    margin-bottom: 60px;
+  }
+
+  #gauge {
+    margin-bottom: 240px;
+  }
+
+}
+
+@media (max-width: 736px) {
+
+  #calculator > h1 {
+    margin-top: 40px;
+    font-size: 48px;
+  }
+
+  #formDiv {
+    height: 400px;
+    width: 480px;
+  }
+
+  #answerDiv {
+    height: 450px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  #formDiv {
+    width: 320px;
+  }
+
+  .littleButton {
+    display: block;
+  }
+
+  .scrollDown {
+    display: none;
+  }
+
+  #disclaimer {
+    margin-top: 50px;
+  }
+
+}

@@ -1,6 +1,4 @@
-//TODO: Get electricity prices for each community
-// TODO: Host on heroku
-// TODO: Chop rebate part from video
+
 
 /**************************
 * SHOP Savings Calculator
@@ -13,11 +11,10 @@
 *
 **
 ___________________________________________________________________________________________*/
-var gasPrice = 0;
+var price = 0;
 var numberInHouse = 0;
 
 $(document).ready(function() {
-    // Init gas price
 
     // $("#answerDiv").css({
     //     display: 'none' // Hides answerDiv on page load
@@ -45,172 +42,179 @@ $(document).ready(function() {
         * Set gas price based on month, community
         * Gas Price in terms of $/therm
         **/
-        // Get system month to determine gas price
-        var date = new Date();
-        var monthsArr = new Array();
-        monthsArr[0] = "January";
-        monthsArr[1] = "February";
-        monthsArr[2] = "March";
-        monthsArr[3] = "April";
-        monthsArr[4] = "May";
-        monthsArr[5] = "June";
-        monthsArr[6] = "July";
-        monthsArr[7] = "August";
-        monthsArr[8] = "September";
-        monthsArr[9] = "October";
-        monthsArr[10] = "November";
-        monthsArr[11] = "December";
-        var month = monthsArr[date.getMonth()];
-        console.log("Current month is " + month);
-
-        switch (userCommunity) {
-
-          // Evanston, Wilmette and Skokie all use NICOR gas, prices from 2014.
-          case "Evanston":
-          case "Wilmette":
-          case "Skokie":
-            switch (month) {
-              case "January":
-                gasPrice = 0.46;
-                break;
-              case "February":
-                gasPrice = 0.51;
-                break;
-              case "March":
-              case "April":
-              case "May":
-              case "June":
-              case "July":
-              case "August":
-                gasPrice = 0.68;
-                break;
-              case "September":
-                gasPrice = 0.49;
-                break;
-              case "October":
-                gasPrice = 0.45;
-                break;
-              case "November":
-                gasPrice = 0.46;
-                break;
-              case "December":
-                gasPrice = 0.40;
-                break;
-              default:
-                break;
-            }
-            break;
-
-          // Highland Park uses North Shore Gas, prices from 2014.
-          case "Highland Park":
-            switch (month) {
-              case "January":
-                gasPrice = 0.52;
-                break;
-              case "February":
-                gasPrice = 0.57;
-                break;
-              case "March":
-                gasPrice = 0.88;
-                break;
-              case "April":
-                gasPrice = 1.22;
-                break;
-              case "May":
-                gasPrice = 0.92;
-                break;
-              case "June":
-                gasPrice = 0.85;
-                break;
-              case "July":
-                gasPrice = 0.83;
-                break;
-              case "August":
-                gasPrice = 0.78;
-                break;
-              case "September":
-                gasPrice = 0.69;
-                break;
-              case "October":
-                gasPrice = 0.56;
-                break;
-              case "November":
-                gasPrice = 0.52;
-                break;
-              case "December":
-                gasPrice = 0.59;
-                break;
-              default:
-                break;
-            }
-            break;
-
-          // Chicago uses Peoples Gas, prices from 2014
-          case "City of Chicago":
-            switch (month) {
-              case "January":
-                gasPrice = 0.48;
-                break;
-              case "February":
-                gasPrice = 0.52;
-                break;
-              case "March":
-                gasPrice = 0.93;
-                break;
-              case "April":
-                gasPrice = 1.19;
-                break;
-              case "May":
-                gasPrice = 0.85;
-                break;
-              case "June":
-                gasPrice = 0.81;
-                break;
-              case "July":
-                gasPrice = 0.86;
-                break;
-              case "August":
-                gasPrice = 0.75;
-                break;
-              case "September":
-                gasPrice = 0.69;
-                break;
-              case "October":
-                gasPrice = 0.49;
-                break;
-              case "November":
-                gasPrice = 0.52;
-                break;
-              case "December":
-                gasPrice = 0.58;
-                break;
-              default:
-                break;
-            }
-            break;
-
-          default:
-            break;
-        }
-
-        console.log("gasPrice is " + gasPrice);
 
         // Gas or Electric?
         var gasBool;
-        var power;
-        if ($("#gasButton").hasClass('activated')) {
+        if ($("#gasButton").hasClass('activated'))
             gasBool = true;
-            power = "gas"
-        } else if ($("#electricityButton").hasClass('activated')) {
-            gasBool = false;
-            power = "electricity"
+        else if ($("#electricityButton").hasClass('activated')) {
+          gasBool = false;
+          comed_price = 7.596; // ComEd price: 7.596 cents per kWh
         }
 
-        if (gasBool == true)
-          console.log("System uses gas.\n");
-        else {
-          console.log("System uses electricity.\n");
+        if (gasBool == true) {
+
+            console.log("System uses gas.\n");
+
+            // Get system month to determine gas price
+            var date = new Date();
+            var monthsArr = new Array();
+            monthsArr[0] = "January";
+            monthsArr[1] = "February";
+            monthsArr[2] = "March";
+            monthsArr[3] = "April";
+            monthsArr[4] = "May";
+            monthsArr[5] = "June";
+            monthsArr[6] = "July";
+            monthsArr[7] = "August";
+            monthsArr[8] = "September";
+            monthsArr[9] = "October";
+            monthsArr[10] = "November";
+            monthsArr[11] = "December";
+            var month = monthsArr[date.getMonth()];
+            console.log("Current month is " + month);
+
+            switch (userCommunity) {
+
+              // Evanston, Wilmette and Skokie all use NICOR gas, prices from 2014.
+              case "Evanston":
+              case "Wilmette":
+              case "Skokie":
+                switch (month) {
+                  case "January":
+                    price = 0.46;
+                    break;
+                  case "February":
+                    price = 0.51;
+                    break;
+                  case "March":
+                  case "April":
+                  case "May":
+                  case "June":
+                  case "July":
+                  case "August":
+                    price = 0.68;
+                    break;
+                  case "September":
+                    price = 0.49;
+                    break;
+                  case "October":
+                    price = 0.45;
+                    break;
+                  case "November":
+                    price = 0.46;
+                    break;
+                  case "December":
+                    price = 0.40;
+                    break;
+                  default:
+                    break;
+                }
+                break;
+
+              // Highland Park uses North Shore Gas, prices from 2014.
+              case "Highland Park":
+                switch (month) {
+                  case "January":
+                    price = 0.52;
+                    break;
+                  case "February":
+                    price = 0.57;
+                    break;
+                  case "March":
+                    price = 0.88;
+                    break;
+                  case "April":
+                    price = 1.22;
+                    break;
+                  case "May":
+                    price = 0.92;
+                    break;
+                  case "June":
+                    price = 0.85;
+                    break;
+                  case "July":
+                    price = 0.83;
+                    break;
+                  case "August":
+                    price = 0.78;
+                    break;
+                  case "September":
+                    price = 0.69;
+                    break;
+                  case "October":
+                    price = 0.56;
+                    break;
+                  case "November":
+                    price = 0.52;
+                    break;
+                  case "December":
+                    price = 0.59;
+                    break;
+                  default:
+                    break;
+                }
+                break;
+
+              // Chicago uses Peoples Gas, prices from 2014
+              case "City of Chicago":
+                switch (month) {
+                  case "January":
+                    price = 0.48;
+                    break;
+                  case "February":
+                    price = 0.52;
+                    break;
+                  case "March":
+                    price = 0.93;
+                    break;
+                  case "April":
+                    price = 1.19;
+                    break;
+                  case "May":
+                    price = 0.85;
+                    break;
+                  case "June":
+                    price = 0.81;
+                    break;
+                  case "July":
+                    price = 0.86;
+                    break;
+                  case "August":
+                    price = 0.75;
+                    break;
+                  case "September":
+                    price = 0.69;
+                    break;
+                  case "October":
+                    price = 0.49;
+                    break;
+                  case "November":
+                    price = 0.52;
+                    break;
+                  case "December":
+                    price = 0.58;
+                    break;
+                  default:
+                    break;
+                }
+                break;
+
+              default:
+                break;
+            }
         }
+
+        else {
+
+          console.log("System uses electricity");
+
+          // Price = ComEd cents per kWh (7.596) times kWh per therm times 100 to convert to dollars
+          price = comed_price * 29.3001111 * 100
+
+        }
+
+        console.log("Price per therm is " + price);
 
         // Sanity checks
         if (numberInHouse > 0 && userCommunity != null && (($("#gasButton").hasClass('activated')) || ($("#electricityButton").hasClass('activated'))))
@@ -238,9 +242,9 @@ ______________________________________________________________________________*/
       var therms = document.getElementById("thermsReturn");
       var dollars = document.getElementById("dollarsReturn");
 
-      /*var monthlyEnergySavings = monthlyEnergySavings(numberInHouse, gasPrice);
-      var weeklyEnergySavings = ((((monthlyEnergySavings(numberInHouse, gasPrice) / 30.5) * 7) * 100) / 100).toFixed(2);
-      var yearlyEnergySavings = (((monthlyEnergySavings(numberInHouse, gasPrice) * 12) * 100) / 100).toFixed(2);
+      /*var monthlyEnergySavings = monthlyEnergySavings(numberInHouse, price);
+      var weeklyEnergySavings = ((((monthlyEnergySavings(numberInHouse, price) / 30.5) * 7) * 100) / 100).toFixed(2);
+      var yearlyEnergySavings = (((monthlyEnergySavings(numberInHouse, price) * 12) * 100) / 100).toFixed(2);
 */
       three_btn_switch("#weeklyButton", "#monthlyButton", "#yearlyButton");
       three_btn_switch("#monthlyButton", "#weeklyButton", "#yearlyButton");
@@ -249,22 +253,22 @@ ______________________________________________________________________________*/
       $("#monthlyButton").addClass("activated");
 
       // Determine values user reqested and returns
-      therms.innerHTML = monthlyEnergySavings(numberInHouse, gasPrice) + " th";
-      dollars.innerHTML = "$" + monthlyCostSavings(numberInHouse, gasPrice);
+      therms.innerHTML = monthlyEnergySavings(numberInHouse, price) + " th";
+      dollars.innerHTML = "$" + monthlyCostSavings(numberInHouse, price);
 
       $("#monthlyButton").click(function() {
-          therms.innerHTML = (monthlyEnergySavings(numberInHouse, gasPrice) + " th");
-          dollars.innerHTML = ("$" + monthlyCostSavings(numberInHouse, gasPrice));
+          therms.innerHTML = (monthlyEnergySavings(numberInHouse, price) + " th");
+          dollars.innerHTML = ("$" + monthlyCostSavings(numberInHouse, price));
       });
 
       $("#weeklyButton").click(function() {
-          therms.innerHTML = weekly(monthlyEnergySavings(numberInHouse, gasPrice)) + " th";
-          dollars.innerHTML = "$" + weekly(monthlyCostSavings(numberInHouse, gasPrice));
+          therms.innerHTML = weekly(monthlyEnergySavings(numberInHouse, price)) + " th";
+          dollars.innerHTML = "$" + weekly(monthlyCostSavings(numberInHouse, price));
       });
 
       $("#yearlyButton").click(function() {
-          therms.innerHTML = yearly(monthlyEnergySavings(numberInHouse, gasPrice)) + " th";
-          dollars.innerHTML = "$" + yearly(monthlyCostSavings(numberInHouse, gasPrice));
+          therms.innerHTML = yearly(monthlyEnergySavings(numberInHouse, price)) + " th";
+          dollars.innerHTML = "$" + yearly(monthlyCostSavings(numberInHouse, price));
       });
 
 /*******************************************************************************
@@ -273,8 +277,10 @@ ______________________________________________________________________________*/
 * Handles equivalents management
 ______________________________________________________________________________*/
 
-      var annualTherms = yearly(monthlyEnergySavings(numberInHouse, gasPrice));
+      // Equivalents processed in annual terms, so we need therms per year
+      var annualTherms = yearly(monthlyEnergySavings(numberInHouse, price));
 
+      // Calculate and show equivalent values
       document.getElementById("returnedGasValue").innerHTML = gasCalc(annualTherms) + " gallons of gas";
       document.getElementById("returnedTreesValue").innerHTML = treesCalc(annualTherms) + " trees";
       document.getElementById("returnedCoalValue").innerHTML = coalCalc(annualTherms) + " lbs of coal";
@@ -308,13 +314,13 @@ function three_btn_switch(btnOn, btnOff1, btnOff2) {
 * */
 
 // Returns monthly energy savings
-function monthlyEnergySavings(numberInHouse, gasPrice) {
-  return (Math.round((numberInHouse * gasPrice) * 100) / 100).toFixed(2);
+function monthlyEnergySavings(numberInHouse, price) {
+  return (Math.round((numberInHouse * price) * 100) / 100).toFixed(2);
 }
 
 // Returns monthly cost savings
-function monthlyCostSavings(numberInHouse, gasPrice) {
-  return (Math.round((numberInHouse * gasPrice) * 100) / 100).toFixed(2);
+function monthlyCostSavings(numberInHouse, price) {
+  return (Math.round((numberInHouse * price) * 100) / 100).toFixed(2);
 }
 
 function weekly(monthlyVal) {
@@ -325,7 +331,9 @@ function yearly(monthlyVal) {
   return (monthlyVal * 12).toFixed(2);
 }
 
-// Equivalents calculations go in here
+/**
+* Equivalents calculations go in here
+**/
 function gasCalc(th) {
   // Gallons of gas
   return (th * 0.597).toFixed(2);

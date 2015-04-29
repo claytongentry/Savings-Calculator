@@ -49,7 +49,7 @@ $(document).ready(function() {
             gasBool = true;
         else if ($("#electricityButton").hasClass('activated')) {
           gasBool = false;
-          comed_price = 7.596; // ComEd price: 7.596 cents per kWh
+          comed_price = 0.0415; // ~4 cents per kWh - 2014 average monthly value across 12 months
         }
 
         if (gasBool == true) {
@@ -76,128 +76,23 @@ $(document).ready(function() {
 
             switch (userCommunity) {
 
+              // All prices calculated from 2014 monthly averages over all 12 months
+
               // Evanston, Wilmette and Skokie all use NICOR gas, prices from 2014.
               case "Evanston":
               case "Wilmette":
               case "Skokie":
-                switch (month) {
-                  case "January":
-                    price = 0.46;
-                    break;
-                  case "February":
-                    price = 0.51;
-                    break;
-                  case "March":
-                  case "April":
-                  case "May":
-                  case "June":
-                  case "July":
-                  case "August":
-                    price = 0.68;
-                    break;
-                  case "September":
-                    price = 0.49;
-                    break;
-                  case "October":
-                    price = 0.45;
-                    break;
-                  case "November":
-                    price = 0.46;
-                    break;
-                  case "December":
-                    price = 0.40;
-                    break;
-                  default:
-                    break;
-                }
+                price = 0.578333 // ~58 cents per therm 
                 break;
 
               // Highland Park uses North Shore Gas, prices from 2014.
               case "Highland Park":
-                switch (month) {
-                  case "January":
-                    price = 0.52;
-                    break;
-                  case "February":
-                    price = 0.57;
-                    break;
-                  case "March":
-                    price = 0.88;
-                    break;
-                  case "April":
-                    price = 1.22;
-                    break;
-                  case "May":
-                    price = 0.92;
-                    break;
-                  case "June":
-                    price = 0.85;
-                    break;
-                  case "July":
-                    price = 0.83;
-                    break;
-                  case "August":
-                    price = 0.78;
-                    break;
-                  case "September":
-                    price = 0.69;
-                    break;
-                  case "October":
-                    price = 0.56;
-                    break;
-                  case "November":
-                    price = 0.52;
-                    break;
-                  case "December":
-                    price = 0.59;
-                    break;
-                  default:
-                    break;
-                }
+                price = 0.74325 // ~74 cents per therm
                 break;
 
               // Chicago uses Peoples Gas, prices from 2014
               case "City of Chicago":
-                switch (month) {
-                  case "January":
-                    price = 0.48;
-                    break;
-                  case "February":
-                    price = 0.52;
-                    break;
-                  case "March":
-                    price = 0.93;
-                    break;
-                  case "April":
-                    price = 1.19;
-                    break;
-                  case "May":
-                    price = 0.85;
-                    break;
-                  case "June":
-                    price = 0.81;
-                    break;
-                  case "July":
-                    price = 0.86;
-                    break;
-                  case "August":
-                    price = 0.75;
-                    break;
-                  case "September":
-                    price = 0.69;
-                    break;
-                  case "October":
-                    price = 0.49;
-                    break;
-                  case "November":
-                    price = 0.52;
-                    break;
-                  case "December":
-                    price = 0.58;
-                    break;
-                  default:
-                    break;
-                }
+                price = 0.7220333 // ~72 cents per therm
                 break;
 
               default:
@@ -209,8 +104,8 @@ $(document).ready(function() {
 
           console.log("System uses electricity");
 
-          // Price = ComEd cents per kWh (7.596) times kWh per therm times 100 to convert to dollars
-          price = comed_price * 29.3001111 * 100
+          // Price = ComEd cents per kWh (7.42) times kWh per therm times 100 to convert to dollars
+          price = comed_price * 29.3001111
 
         }
 

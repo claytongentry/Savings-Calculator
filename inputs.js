@@ -56,24 +56,6 @@ $(document).ready(function() {
 
             console.log("System uses gas.\n");
 
-            // Get system month to determine gas price
-            var date = new Date();
-            var monthsArr = new Array();
-            monthsArr[0] = "January";
-            monthsArr[1] = "February";
-            monthsArr[2] = "March";
-            monthsArr[3] = "April";
-            monthsArr[4] = "May";
-            monthsArr[5] = "June";
-            monthsArr[6] = "July";
-            monthsArr[7] = "August";
-            monthsArr[8] = "September";
-            monthsArr[9] = "October";
-            monthsArr[10] = "November";
-            monthsArr[11] = "December";
-            var month = monthsArr[date.getMonth()];
-            console.log("Current month is " + month);
-
             switch (userCommunity) {
 
               // All prices calculated from 2014 monthly averages over all 12 months

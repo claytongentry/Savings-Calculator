@@ -1,8 +1,5 @@
 <?php require('templates/header.php'); ?>
 
-        <div id = "infoButton">
-            <p>i</p>
-        </div>
         <div id = "dialogoverlay"></div>
         <div id = "dialogbox">
             <div id = "dialogboxhead"></div>
@@ -30,10 +27,9 @@
             </div>
         </div>
         <div id = "title">
-            <h1>SHOP Savings Calculator</h1>
-            <h4>Answer three quick questions, and we'll tell you how much you'll save with SHOP.</h4>
+            <h1>US Solar Savings Calculator</h1>
+            <h4>Answer three quick questions, and we'll tell you how much you'll save with US Solar Network.</h4>
         </div>
-        <div id = "container">
             <div id = "formDiv">
                 <form id = "questionForm">
                     <div class = "question">
@@ -78,11 +74,13 @@
                         <p class = "identifier">Energy</p>
                         <div class = "valueReturn" id = "thermsReturn"></div>
                     </div>
+                    <span class = "mobile-break"><br/></span>
                     <div class = "mainReturn" id = "dollars">
-                        <p class = "identifier">Money</p>
+                        <p class = "identifier" style = "text-align: center;">Money</p>
                         <div class = "valueReturn" id = "dollarsReturn"></div>
                     </div>
                 </div>
+                <br/>
                 <div class = "scrollDown">
                     <i class="fa fa-arrow-circle-o-down fa-4x"></i>
                 </div>
@@ -108,23 +106,24 @@
                         <p class = "equivText">every year.</p>
                     </div>
                 </div>
+                <br/>
                 <div class = "scrollDown">
                     <i class="fa fa-arrow-circle-o-down fa-4x"></i>
                 </div>
+                <br/>
                 <div id = "gauge">
                     <p id = "gaugeInfo">As of this week, we've put panels on <strong><span id="currentHomes">71</span> homes</strong>. Help us make it <strong><span id="plusUser">91</span></strong> today by joining SHOP with 19 of your neighbors.</p>
                     <div id = "gaugeChartDiv" style = "margin-left: auto; margin-right: auto;"></div>
                     <a href = "http://ussolarnetwork.com/contact/" target = "_blank"><div id = "contactUsButton">Contact Us</div></a>
                 </div>
             </div>
-        </div>
-        <img id = "shopLogo" alt = "Solar H20 Community Program" src="images/ussolarlogo.jpg">
-        <img id = "USSolarLogo" alt = "US Solar Network" src="images/ussnLogo.jpg">
-        <div id = "footer">
+        <!-- <img id = "shopLogo" alt = "Solar H20 Community Program" src="images/ussolarlogo.jpg">
+        <img id = "USSolarLogo" alt = "US Solar Network" src="images/ussnLogo.jpg"> -->
+        <!-- <div id = "footer">
             <p id = "disclaimer">Note: This calculator provides savings estimates
               based on assumptions that may vary from user to user. US Solar
               Network does not guarantee that real-world returns will match the
               values calculated here.</p>
-        </div>
+        </div> -->
 
 <?php require('templates/footer.php'); ?>

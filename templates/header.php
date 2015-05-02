@@ -8,6 +8,18 @@
         <link type = "text/css" rel="stylesheet" href="styles.css">
         <script type = "text/javascript" src = "https://www.google.com/jsapi"></script>
         <script type = "text/javascript" src = "gaugeChart.js"></script>
-        <title>SHOP Savings Calculator</title>
+        <title>Savings Calculator | US Solar Network</title>
     </head>
     <body id = "calculator">
+
+              <a href = "http://ussolarnetwork.com">
+                <div id = "home_btn" style = "float: left;">
+                  <p>Home</p>
+                </div>
+              </a>
+
+              <div id = "infoButton" style = "float: right;">
+                  <p>i</p>
+              </div>
+
+              <br/>

@@ -1,9 +1,13 @@
-body {
+html, body {
   overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
+}
+
+.mobile-break {
+  display: none;
 }
 
 .fa-car {
@@ -47,6 +51,34 @@ p {
     color: #39c;
 }
 
+#home_btn {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: white;
+  color: #39c;
+  transition: 0.2s;
+  border: 1px solid #39c;
+  float: left;
+}
+
+#home_btn > p {
+  margin: 0px;
+  transition: 0.2s;
+}
+
+#home_btn:hover {
+  background-color: #39c;
+  transition: 0.2s;
+}
+
+#home_btn:hover > p {
+  color: white;
+  transition: 0.2s;
+}
+
+
 #infoButton {
     text-align: center;
     height: 18px;
@@ -55,7 +87,7 @@ p {
     border-radius: 100%;
     background-color: gray;
     float: right;
-    margin: -30px 30px auto auto;
+    margin: 10px 30px auto auto;
     padding: 5px;
 }
 
@@ -90,10 +122,11 @@ p {
 #dialogbox {
   display: none;
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
   background: #000;
   border: 15px solid black;
-  border-radius: 15px;
-  width: 300px;
+  width: 540px;
   z-index: 10;
   background-color: #fff;
 }
@@ -124,15 +157,8 @@ p {
     text-align: right;
 }
 
-#container {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    height: 430px;
-}
-
 #formDiv {
-    height: 480px;
+    height: 450px;
     width: 700px;
     margin: 10px auto 0px auto;
     text-align: center;
@@ -181,7 +207,7 @@ select option p {
     position: relative;
     text-align: center;
     font-size: 18px;
-    height: 340px;
+    height: 400px;
     width: auto;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -341,7 +367,7 @@ select option p {
 
 #gauge {
   width: 300px; height: 150px;
-  margin: 80px auto 140px auto;
+  margin: 40px auto 140px auto;
   text-align: center;
 }
 
@@ -381,11 +407,11 @@ select option p {
 }
 
 #footer {
-    margin: 10px auto 0px auto;
+    margin: 0px auto 0px auto;
     height: 36px;
 }
 
-img {
+/*img {
     width: 350px;
     margin-top: -100px;
 }
@@ -398,7 +424,7 @@ img {
 #USSolarLogo {
     float: right;
     margin-right: 100px;
-}
+}*/
 
 #disclaimer {
     text-align: center;
@@ -406,7 +432,6 @@ img {
     font-style: italic;
     color: black;
     font-size: 12px;
-    margin-top: 30px;
 }
 
 @media (max-width: 1200px) {
@@ -443,13 +468,13 @@ img {
     font-size: 48px;
   }
 
-  #formDiv {
-    height: 400px;
+  #dialogbox {
     width: 480px;
+    margin-left: 30px;
   }
 
-  #answerDiv {
-    height: 450px;
+  #formDiv {
+    width: 480px;
   }
 
 }
@@ -460,16 +485,21 @@ img {
     width: 320px;
   }
 
+  .mobile-break {
+    display: block;
+  }
+
+  #dialogbox {
+    width: 320px;
+    margin-left: 100px;
+  }
+
   .littleButton {
     display: block;
   }
 
   .scrollDown {
     display: none;
-  }
-
-  #disclaimer {
-    margin-top: 50px;
   }
 
 }

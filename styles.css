@@ -498,8 +498,4 @@ select option p {
     display: block;
   }
 
-  .scrollDown {
-    display: none;
-  }
-
 }

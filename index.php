@@ -29,6 +29,7 @@
         <div id = "title">
             <h1>US Solar Savings Calculator</h1>
         </div>
+        <hr/>
             <div id = "formDiv">
                 <h4>Answer three quick questions, and we'll estimate how much you'll save with US Solar Network.</h4>
                 <form id = "questionForm">

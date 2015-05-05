@@ -295,30 +295,30 @@ function three_btn_switch(btnOn, btnOff1, btnOff2) {
 
 // Returns monthly energy savings
 function monthly(annualTherms) {
-  return (annualTherms / 12.0).toFixed(2);
+  return Math.round(annualTherms / 12.0);
 }
 
 // Returns monthly cost savings
 function monthlyCostSavings(annualTherms, price) {
   monthlyTherms = annualTherms / 12.0;
-  return (Math.round((monthlyTherms * price) * 100) / 100).toFixed(2);
+  return (monthlyTherms * price * 100 / 100).toFixed(2);
 }
 
 function weekly(annualTherms) {
-  return (annualTherms / 52.0 * 100 / 100).toFixed(2);
+  return Math.round(annualTherms / 52.0 * 100 / 100);
 }
 
 function weeklyCostSavings(annualTherms) {
   weeklyTherms = annualTherms / 52.0;
-  return (Math.round((weeklyTherms * price) * 100) / 100).toFixed(2);
+  return (weeklyTherms * price * 100 / 100).toFixed(2);
 }
 
 function yearly(annualVal) {
-  return (monthlyVal * 12 * 100 / 100).toFixed(2);
+  return Math.round(monthlyVal * 12 * 100 / 100);
 }
 
 function yearlyCostSavings(annualTherms, price) {
-  return (Math.round((annualTherms * price) * 100) / 100).toFixed(2);
+  return (annualTherms * price * 100 / 100).toFixed(2);
 }
 
 /**
@@ -326,17 +326,17 @@ function yearlyCostSavings(annualTherms, price) {
 **/
 function gasCalc(th) {
   // Gallons of gas
-  return (th * 0.597).toFixed(2);
+  return Math.round(th * 0.597);
 }
 
 function treesCalc(th) {
   // Number of tree seedlings grown for 10 years
-  return (th * 0.136).toFixed(2);
+  return Math.round(th * 0.136);
 }
 
 function coalCalc(th) {
   // Pounds of coal
-  return (th * 5.70).toFixed(2);
+  return Math.round(th * 5.70);
 }
 
 /*****************

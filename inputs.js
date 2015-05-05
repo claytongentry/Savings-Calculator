@@ -33,25 +33,93 @@ $(document).ready(function() {
         numberInHouse = parseInt($("#numPeopleInput").val());
         console.log("Number in House is " + numberInHouse);
 
+        // Gas or Electric?
+        var gasBool;
+        var elec_price;
+        if ($("#gasButton").hasClass('activated'))
+            gasBool = true;
+        else if ($("#electricityButton").hasClass('activated')) {
+            gasBool = false;
+        }
+
+        // If gas, determine annual therms based on people in house
+        var annualTherms;
+        if (gasBool == true) {
+            switch (numberInHouse) {
+              case 1:
+                console.log("Standard 2-panel system may be oversized. Consult US Solar Network.");
+                break;
+              case 2:
+                annualTherms = 94;
+                break;
+              case 3:
+                annualTherms = 103;
+                break;
+              case 4:
+                annualTherms = 111;
+                break;
+              case 5:
+                annualTherms = 118;
+                break;
+              case 6:
+                annualTherms = 124;
+                break;
+              case 7:
+                annualTherms = 129;
+                break;
+              case 8:
+                annualTherms = 134;
+                break;
+              default:
+                console.log("A larger system may be required. Consult US Solar Network.");
+                break;
+            }
+        }
+
+        // If electricity, determine annual kWh
+        else {
+          var annualkwh;
+          switch (numberInHouse) {
+            case 1:
+              console.log("Standard 2-panel system may be oversized. Consult US Solar Network.");
+              break;
+            case 2:
+              annualkwh = 2808;
+              break;
+            case 3:
+              annualkwh = 3095;
+              break;
+            case 4:
+              annualkwh = 3324;
+              break;
+            case 5:
+              annualkwh = 3537;
+              break;
+            case 6:
+              annualkwh = 3702;
+              break;
+            case 7:
+              annualkwh = 3870;
+              break;
+            case 8:
+              annualkwh = 4010;
+              break;
+            default:
+              console.log("A larger system may be required. Consult US Solar Network.");
+              break;
+          }
+        }
+
         // Get user's community
         var selCommunity = document.getElementById("selCommunity");
         var userCommunity = selCommunity.options[selCommunity.selectedIndex].value;
         console.log("User Community is " + userCommunity);
 
         /**
-        * Set gas price based on month, community
-        * Gas Price in terms of $/therm
+        * Set gas price based on community
         **/
 
-        // Gas or Electric?
-        var gasBool;
-        if ($("#gasButton").hasClass('activated'))
-            gasBool = true;
-        else if ($("#electricityButton").hasClass('activated')) {
-          gasBool = false;
-          comed_price = 0.0415; // ~4 cents per kWh - 2014 average monthly value across 12 months
-        }
-
+        // If gas system, set price based on community
         if (gasBool == true) {
 
             console.log("System uses gas.\n");
@@ -86,14 +154,16 @@ $(document).ready(function() {
 
           console.log("System uses electricity");
 
-          // Price = ComEd cents per kWh (7.42) times kWh per therm times 100 to convert to dollars
-          price = comed_price * 29.3001111
+          // Price = cost per kWh (0.09) times kWh per therm
+          price = 0.09;
 
         }
 
         console.log("Price per therm is " + price);
 
-        // Sanity checks
+        /*
+         * Sanity checks
+         */
         if (numberInHouse > 0 && userCommunity != null && (($("#gasButton").hasClass('activated')) || ($("#electricityButton").hasClass('activated'))))
             $("#answerDiv").delay(400).fadeIn(400);
 
@@ -119,10 +189,6 @@ ______________________________________________________________________________*/
       var therms = document.getElementById("thermsReturn");
       var dollars = document.getElementById("dollarsReturn");
 
-      /*var monthlyEnergySavings = monthlyEnergySavings(numberInHouse, price);
-      var weeklyEnergySavings = ((((monthlyEnergySavings(numberInHouse, price) / 30.5) * 7) * 100) / 100).toFixed(2);
-      var yearlyEnergySavings = (((monthlyEnergySavings(numberInHouse, price) * 12) * 100) / 100).toFixed(2);
-*/
       three_btn_switch("#weeklyButton", "#monthlyButton", "#yearlyButton");
       three_btn_switch("#monthlyButton", "#weeklyButton", "#yearlyButton");
       three_btn_switch("#yearlyButton", "#weeklyButton", "#monthlyButton");
@@ -130,23 +196,46 @@ ______________________________________________________________________________*/
       $("#monthlyButton").addClass("activated");
 
       // Determine values user reqested and returns
-      therms.innerHTML = monthlyEnergySavings(numberInHouse, price) + " th";
-      dollars.innerHTML = "$" + monthlyCostSavings(numberInHouse, price);
+      if (gasBool == true) {
+        therms.innerHTML = monthly(annualTherms) + " th";
+        dollars.innerHTML = "$" + monthlyCostSavings(annualTherms, price);
 
-      $("#monthlyButton").click(function() {
-          therms.innerHTML = (monthlyEnergySavings(numberInHouse, price) + " th");
-          dollars.innerHTML = ("$" + monthlyCostSavings(numberInHouse, price));
-      });
+        $("#monthlyButton").click(function() {
+            therms.innerHTML = (monthly(annualTherms) + " th");
+            dollars.innerHTML = "$" + monthlyCostSavings(annualTherms, price);
+        });
 
-      $("#weeklyButton").click(function() {
-          therms.innerHTML = weekly(monthlyEnergySavings(numberInHouse, price)) + " th";
-          dollars.innerHTML = "$" + weekly(monthlyCostSavings(numberInHouse, price));
-      });
+        $("#weeklyButton").click(function() {
+            therms.innerHTML = weekly(annualTherms) + " th";
+            dollars.innerHTML = "$" + weeklyCostSavings(annualTherms);
+        });
 
-      $("#yearlyButton").click(function() {
-          therms.innerHTML = yearly(monthlyEnergySavings(numberInHouse, price)) + " th";
-          dollars.innerHTML = "$" + yearly(monthlyCostSavings(numberInHouse, price));
-      });
+        $("#yearlyButton").click(function() {
+            therms.innerHTML = annualTherms + " th";
+            dollars.innerHTML = "$" + yearlyCostSavings(annualTherms, price);
+        });
+      }
+
+      else {
+        therms.innerHTML = monthly(annualkwh) + " kWh";
+        dollars.innerHTML = "$" + monthlyCostSavings(annualkwh, price);
+
+        $("#monthlyButton").click(function() {
+            therms.innerHTML = (monthly(annualkwh) + " kWh");
+            dollars.innerHTML = "$" + monthlyCostSavings(annualkwh, price);
+        });
+
+        $("#weeklyButton").click(function() {
+            therms.innerHTML = weekly(annualkwh) + " kWh";
+            dollars.innerHTML = "$" + weeklyCostSavings(annualkwh);
+        });
+
+        $("#yearlyButton").click(function() {
+            therms.innerHTML = annualkwh + " kWh";
+            dollars.innerHTML = "$" + yearlyCostSavings(annualkwh, price);
+        });
+      }
+
 
 /*******************************************************************************
 * Equivalents
@@ -155,7 +244,12 @@ ______________________________________________________________________________*/
 ______________________________________________________________________________*/
 
       // Equivalents processed in annual terms, so we need therms per year
-      var annualTherms = yearly(monthlyEnergySavings(numberInHouse, price));
+      // var annualTherms = yearly(monthlyEnergySavings(numberInHouse, price)); – NOW CALCULATING ANNUAL THERMS FROM NUMBER OF PEOPLE IN HOUSE ^^
+
+      // If it's an electric system, need to convert kWh to therms first just for math's sake
+      if (gasBool == false) {
+        annualTherms = annualkwh / 29.3001111;
+      }
 
       // Calculate and show equivalent values
       document.getElementById("returnedGasValue").innerHTML = gasCalc(annualTherms) + " gallons of gas";
@@ -165,6 +259,8 @@ ______________________________________________________________________________*/
   });
 
 });
+
+/******************************************************************************/
 
 // Type button switching
 function two_btn_switch(btnOn, btnOff) {
@@ -191,21 +287,31 @@ function three_btn_switch(btnOn, btnOff1, btnOff2) {
 * */
 
 // Returns monthly energy savings
-function monthlyEnergySavings(numberInHouse, price) {
-  return (Math.round((numberInHouse * price) * 100) / 100).toFixed(2);
+function monthly(annualTherms) {
+  return (annualTherms / 12.0).toFixed(2);
 }
 
 // Returns monthly cost savings
-function monthlyCostSavings(numberInHouse, price) {
-  return (Math.round((numberInHouse * price) * 100) / 100).toFixed(2);
+function monthlyCostSavings(annualTherms, price) {
+  monthlyTherms = annualTherms / 12.0;
+  return (Math.round((monthlyTherms * price) * 100) / 100).toFixed(2);
 }
 
-function weekly(monthlyVal) {
-  return (monthlyVal / 30.5 * 7 * 100 / 100).toFixed(2);
+function weekly(annualTherms) {
+  return (annualTherms / 52.0 * 100 / 100).toFixed(2);
 }
 
-function yearly(monthlyVal) {
-  return (monthlyVal * 12).toFixed(2);
+function weeklyCostSavings(annualTherms) {
+  weeklyTherms = annualTherms / 52.0;
+  return (Math.round((weeklyTherms * price) * 100) / 100).toFixed(2);
+}
+
+function yearly(annualVal) {
+  return (monthlyVal * 12 * 100 / 100).toFixed(2);
+}
+
+function yearlyCostSavings(annualTherms, price) {
+  return (Math.round((annualTherms * price) * 100) / 100).toFixed(2);
 }
 
 /**

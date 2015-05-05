@@ -30,37 +30,37 @@
             <h1>US Solar Savings Calculator</h1>
         </div>
         <hr/>
-            <div id = "formDiv">
-                <h4>Answer three quick questions, and we'll estimate how much you'll save with US Solar Network.</h4>
-                <form id = "questionForm">
-                    <div class = "question">
-                        <h3>How many people live in your home?</h3>
-                        <!--Takes keyboard input in form box-->
-                        <input id = "numPeopleInput" type = "number">
-                    </div>
-                    <div class = "question">
-                        <h3>Pick your community.</h3>
-                        <!--Community dropdown goes here-->
-                        <label>
-                            <select id = "selCommunity">
-                                    <option value = "Select a Community">Select a Community</option>
-                                    <option value = "Evanston">Evanston</option>
-                                    <option value = "Wilmette">Wilmette</option>
-                                    <option value = "Skokie">Skokie</option>
-                                    <option value = "Highland Park">Highland Park</option>
-                                    <option value = "City of Chicago">City of Chicago</option>
-                            </select>
-                        </label>
-                    </div>
-                    <div class = "question">
-                      <h3>Does your water heater use gas or electricity?</h3>
-                      <!--Button select-->
-                        <div class = "bigButton" id = "gasButton"><p>Gas</p></div>
-                        <div class = "bigButton" id = "electricityButton"><p>Electricity</p></div>
-                    </div>
-                </form>
-                <input class="submitButton" id = "formSubmit" type="submit" value="Submit!">
-            </div>
+        <div id = "formDiv">
+            <h4>Answer three quick questions, and we'll estimate how much you'll save with US Solar Network.</h4>
+            <form id = "questionForm">
+                <div class = "question">
+                    <h3>How many people live in your home?</h3>
+                    <!--Takes keyboard input in form box-->
+                    <input id = "numPeopleInput" type = "number">
+                </div>
+                <div class = "question">
+                    <h3>Pick your community.</h3>
+                    <!--Community dropdown goes here-->
+                    <label>
+                        <select id = "selCommunity">
+                                <option value = "Select a Community">Select a Community</option>
+                                <option value = "Evanston">Evanston</option>
+                                <option value = "Wilmette">Wilmette</option>
+                                <option value = "Skokie">Skokie</option>
+                                <option value = "Highland Park">Highland Park</option>
+                                <option value = "City of Chicago">City of Chicago</option>
+                        </select>
+                    </label>
+                </div>
+                <div class = "question">
+                  <h3>Does your water heater use gas or electricity?</h3>
+                  <!--Button select-->
+                    <div class = "bigButton" id = "gasButton"><p>Gas</p></div>
+                    <div class = "bigButton" id = "electricityButton"><p>Electricity</p></div>
+                </div>
+            </form>
+            <input class="submitButton" id = "formSubmit" type="submit" value="Submit!">
+        </div>
             <!--Div returned on form submission-->
             <div id="answerDiv">
                 <p id = "mainTopLine">Your Savings</p>
@@ -102,7 +102,7 @@
                     </div>
                     <div class = "equiv" id = "gas">
                         <i class = "fa fa-car fa-5x"></i>
-                        <p class = "equivText">And you'll save about</p>
+                        <p class = "equivText">Or you'll save about</p>
                         <p class = "returnedEquivValue" id = "returnedGasValue"></p>
                         <p class = "equivText">every year.</p>
                     </div>

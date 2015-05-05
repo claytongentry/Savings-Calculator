@@ -385,7 +385,7 @@ select option p {
   margin: 0 auto !important;
 }
 
-#contactUsButton {
+.end_btn {
   width: 240px;
   height: 48px;
   line-height: 48px;
@@ -400,10 +400,14 @@ select option p {
   font-size: 18px;
 }
 
-#contactUsButton:hover {
+.end_btn:hover {
   transition: 0.2s;
   background-color: #39c;
   color: white;
+}
+
+#recalculate {
+  margin-top: 35px;
 }
 
 #footer {
@@ -453,10 +457,6 @@ select option p {
     display: block;
     padding: 0px;
     margin-bottom: 60px;
-  }
-
-  #gauge {
-    margin-bottom: 240px;
   }
 
 }

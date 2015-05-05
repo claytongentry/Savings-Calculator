@@ -114,8 +114,10 @@
                 <div id = "gauge">
                     <p id = "gaugeInfo">As of this week, we've put panels on <strong><span id="currentHomes">71</span> homes</strong>. Help us make it <strong><span id="plusUser">91</span></strong> today by joining SHOP with 19 of your neighbors.</p>
                     <div id = "gaugeChartDiv" style = "margin-left: auto; margin-right: auto;"></div>
-                    <a href = "http://ussolarnetwork.com/contact/" target = "_blank"><div id = "contactUsButton">Contact Us</div></a>
+                    <a href = "http://ussolarnetwork.com/contact/" target = "_blank"><div class = "end_btn" id = "contactUsButton">Contact Us</div></a>
                 </div>
+                <br/>
+                <div class = "end_btn" id = "recalculate" onclick = "location.reload(true)">Recalculate</div>
             </div>
         <!-- <img id = "shopLogo" alt = "Solar H20 Community Program" src="images/ussolarlogo.jpg">
         <img id = "USSolarLogo" alt = "US Solar Network" src="images/ussnLogo.jpg"> -->

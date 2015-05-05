@@ -164,9 +164,16 @@ $(document).ready(function() {
         /*
          * Sanity checks
          */
-        if (numberInHouse > 0 && userCommunity != null && (($("#gasButton").hasClass('activated')) || ($("#electricityButton").hasClass('activated'))))
+        if (numberInHouse > 1 && numberInHouse < 9 && userCommunity != null && (($("#gasButton").hasClass('activated')) || ($("#electricityButton").hasClass('activated'))))
             $("#answerDiv").delay(400).fadeIn(400);
-
+        else if (numberInHouse <= 1) {
+            alert("You indicated only one person lives in your residence. A standard 2-panel system may be oversized. Consult US Solar Network for further details.");
+            $("#formDiv").fadeIn();
+        }
+        else if (numberInHouse >= 9) {
+            alert("You indicated more than 8 people live in your residence. A standard 2-panel system may be undersized. Consult US Solar Network for further details.");
+            $("#formDiv").fadeIn();
+        }
         // Incomplete form
         else {
             alert("Uh oh! We weren't able to process your submission. Try again.\n");

@@ -104,7 +104,7 @@
                     </div>
                     <div class = "equiv" id = "gas">
                         <i class = "fa fa-car fa-5x"></i>
-                        <p class = "equivText">Or you'll save about</p>
+                        <p class = "equivText">Or you'll conserve about</p>
                         <p class = "returnedEquivValue" id = "returnedGasValue"></p>
                         <p class = "equivText">every year.</p>
                     </div>

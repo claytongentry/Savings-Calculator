@@ -19,7 +19,6 @@ a {
 }
 
 #title {
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -158,9 +157,9 @@ p {
 }
 
 #formDiv {
-    height: 450px;
+    height: 500px;
     width: 700px;
-    margin: 10px auto 0px auto;
+    margin: 0px auto 0px auto;
     text-align: center;
 }
 
@@ -491,7 +490,7 @@ select option p {
 
   #dialogbox {
     width: 300px;
-    margin-left: 100px;
+    margin-left: 110px;
   }
 
   .littleButton {

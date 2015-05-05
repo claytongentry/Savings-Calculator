@@ -22,7 +22,7 @@
                 slightly different calculations to determine price and equivalent savings.</p><p>
                 <strong>A Final Note</strong></p><p>
                 US Solar Network does not guarantee that the returns estimated by
-                this calculator will matchreal-world returns.</p>
+                this calculator will match real-world returns.</p>
             </div>
             <div id = "dialogboxfoot">
                 <button id = "OkButton" style = "cursor:pointer;">Ok</button>

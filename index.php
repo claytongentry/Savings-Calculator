@@ -9,15 +9,17 @@
                 electricity or gas – to determine a savings estimate personal to
                 you.</p><p>
                 <strong>Why do we need the number of people in your home?</strong></p><p>
-                Our calculator assumes that one person uses {THIS MANY} gallons of water.
-                So with more people in the house, our calculator assumes you'll be using
-                more hot water than a house with fewer people.</p><p>
+                Our calculator assumes that each person uses between 12 and 20 gallons of water each day
+                As the number of people in your residence increases, our calculator assumes you'll be using
+                more hot water, which translates to higher savings.</p><p>
                 <strong>Why do we need your community?</strong></p><p>
                 These five communities listed are serviced by three different gas companies.
                 Each of these companies offers different prices from month to
-                month, and our calculator accounts for those differences.</p><p>
+                month, and our calculator accounts for those price differences.</p><p>
                 <strong>Why do we need your water heater type?</strong></p><p>
-                Maybe Jonathan will know the answer to this.</p><p>
+                Electricity savings are calculated in kilowatt-hours (kWh), whereas
+                gas savings are calculated in therms (th). These units demand
+                slightly different calculations to determine price and equivalent savings.</p><p>
                 <strong>A Final Note</strong></p><p>
                 US Solar Network does not guarantee that the returns estimated by
                 this calculator will matchreal-world returns.</p>
